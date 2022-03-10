@@ -8,7 +8,11 @@
     </section>
     <section class="container text-center">
     <h2 style="color: white">My collections</h2>
-      <Collections/>
+      <input v-model="titlecoll" type="text">
+      <button class="btn bg-danger" v-on:click="addcollec">Add Collection</button>
+      <div v-for="collecs in collec" v-bind:key="collecs">
+      <Collections :title=collecs.title />
+      </div>
 
     </section>
   </div>
@@ -21,6 +25,19 @@ export default {
   components: {
     Collections
   },
+
+  data()  {
+    return {
+      collec:[],
+      titlecoll : ""
+    }
+  },
+  methods :{
+    addcollec(){
+      this.collec.push({title : this.titlecoll})
+    }
+  }
+
 
 
 }
