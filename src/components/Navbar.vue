@@ -1,4 +1,5 @@
 <template>
+  <div>
   <nav>
     <div class="container d-flex flex-flow">
     <div class="leftnav container d-flex flex-flow" >
@@ -22,16 +23,39 @@
         <span class="text-center">Title</span>
       </div>
     <div class="rightnav container">
-      <span><img src="../ressources/User.png"  alt=""/> Login/Register</span>
+      <span @click="isModal"><img src="../ressources/User.png"  alt=""/> Login/Register</span>
     </div>
+
     </div>
+
   </nav>
+    <div>
+    <LoginModal @close="closeModal"/>
+    </div>
+  </div>
 </template>
 <script>
 
-
+import LoginModal from "@/components/LoginModal";
 export default {
   name: "Navbar.vue",
+  components : {
+    LoginModal
+  },
+  data(){
+    return {
+    }
+  },
+  methods : {
+    isModal() {
+      document.getElementById("modal-backdrop").style = "display: flex;"
+      document.body.style = "overflow-y: hidden;"
+    },
+    closeModal() {
+      document.getElementById("modal-backdrop").style = "display: none;"
+      document.body.style = "overflow-y: scroll;"
+    }
+  }
 }
 </script>
 <style>
