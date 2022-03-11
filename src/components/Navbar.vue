@@ -38,16 +38,25 @@ export default {
 body {
   margin: 0;
 }
-
 nav {
   top: 0;
   background-color: limegreen;
   padding: 5px;
+  width: 100vw;
   color: white;
   font-size: large;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 200;
+
+
+}
+nav:hover{
+  opacity: 1;
 }
 .leftnav{
   width: 40% ;
+  margin: 0;
 }
 .rightnav{
   margin-left: 30%;

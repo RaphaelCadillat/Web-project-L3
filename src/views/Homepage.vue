@@ -1,21 +1,24 @@
-<template>
-  <div class="container">
-    Bienvenue
-    <section class="container bg-danger mt-2 rounded">
-      <div class="" style="height: 200px">
-        Oui
-      </div>
-    </section>
+<template class="m-0">
+  <div class="container m-0 p-0">
     <Carroussel/>
+    <div class="Section">
+    <HeroSection color="bg-success"/>
+    </div>
+
+    <InformationSection/>
   </div>
 </template>
 
 <script>
 import Carroussel from "@/components/Carroussel";
+import HeroSection from "@/components/HeroSection";
+import InformationSection from "@/components/InformationSection";
 export default {
   name: 'Homepage',
   components: {
-    Carroussel
+    HeroSection,
+    Carroussel,
+    InformationSection
 
 
 
@@ -39,5 +42,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.Section{
+  width: 100vw;
+  height: 100vh;
+}
+template{
+  margin:0;}
 </style>
