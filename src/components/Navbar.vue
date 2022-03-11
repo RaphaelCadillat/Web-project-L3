@@ -3,13 +3,19 @@
     <div class="container d-flex flex-flow">
     <div class="leftnav container d-flex flex-flow" >
       <span>
+        <router-link to="/">
         <img src="../ressources/iconhome.png" alt=""/>
+        </router-link>
       </span>
-      <span>
+      <span style="margin-left: 10px">
+        <router-link to="/about">
         <img src="../ressources/direction1.png" class="ml-4" alt="">
+        </router-link>
       </span>
-      <span>
+      <span style="margin-left: 10px">
+        <router-link to="/form">
         <img src="../ressources/Message_alt.png" class="ml-4" alt=""/>
+          </router-link>
       </span>
     </div>
       <div class="title container text-center flex-flow d.flow">
@@ -49,4 +55,5 @@ nav {
 
 .title{
 }
+
 </style>
