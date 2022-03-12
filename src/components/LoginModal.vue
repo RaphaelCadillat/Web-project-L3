@@ -2,12 +2,14 @@
   <section id="modal-backdrop" class="m-auto opacity-0" >
     <div class="modal">
       <div class="container row p-0 mb-2">
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-12">
           <img src="https://resize3.prod.docfr.doc-media.fr/s/1200/img/var/doctissimo/storage/images/fr/www/psychologie/dictionnaire-des-reves/rever-de-dinosaure/793443-1-fre-FR/rever-de-dinosaure.jpg" alt="">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-12">
           <button class="btn-success close rounded" @click="close">X</button>
         <h2>LogIn/SignUp !</h2>
+          <FormInput title="Username" type="text"/>
+          <FormInput title="Password" type="password"/>
         </div>
       </div>
       
@@ -18,8 +20,12 @@
 </template>
 
 <script>
+import FormInput from "@/components/FormInput";
 export default {
   name: "LoginModal",
+  components : {
+    FormInput
+  },
   methods : {
     close(){
       this.$emit('close');
@@ -44,6 +50,7 @@ section{
   left: 12.5vw;
   transform: translateX(0%);
   overflow-y:hidden;
+
 
 
 }
