@@ -10,7 +10,8 @@ export default {
   name: "FormInput",
   props : {
     title : String,
-    type : String
+    type : String,
+    bind : String
   }
 }
 </script>
