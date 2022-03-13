@@ -1,6 +1,6 @@
 <template>
-<div class="container mt-4" style="width: 100%">
-  <span class="mr-3">{{title}}</span>
+<div class="container mt-4 m-0 flex-column d-flex" style="width: 100%">
+  <span class="text-left">{{title}}</span>
   <input class="rounded" :placeholder="title" :type="type">
 </div>
 </template>
@@ -24,10 +24,11 @@ input{
   border-left: none;
   border-right: none  ;
   color: #FFFFFF;
+
 }
 span{
-  margin-right: 15%;
-  color: #FFFFFF;
 
+  color: #FFFFFF;
+  text-align: left;
 }
 </style>

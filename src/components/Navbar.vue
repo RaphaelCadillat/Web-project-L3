@@ -1,8 +1,11 @@
 <template>
   <div>
   <nav>
-    <div class="container d-flex flex-flow">
-    <div class="leftnav container d-flex flex-flow" >
+    <div class="container d-flex flex-flow m-0">
+      <div class="title text-center">
+        <h1>DinoCollec</h1>
+      </div>
+    <div class="leftnav container d-flex flex-flow m-0" >
       <span>
         <router-link to="/">
         <img src="../ressources/iconhome.png" alt=""/>
@@ -19,11 +22,8 @@
           </router-link>
       </span>
     </div>
-      <div class="title container text-center flex-flow d.flow">
-        <span class="text-center">Title</span>
-      </div>
-    <div class="rightnav container">
-      <span @click="isModal"><img src="../ressources/User.png"  alt=""/> Login/Register</span>
+    <div class="rightnav container m-0">
+      <span class="log ml-5" @click="isModal"><img src="../ressources/User.png"  alt=""/> Login/Register</span>
     </div>
 
     </div>
@@ -66,7 +66,7 @@ nav {
   top: 0;
   background-color: black;
   padding: 5px;
-  width: 100vw;
+  width: 100%;
   color: white;
   font-size: large;
   opacity: 0.5;
@@ -82,11 +82,11 @@ nav:hover{
   width: 40% ;
   margin: 0;
 }
-.rightnav{
-  margin-left: 30%;
+.log {
+margin-left: 70%;
 }
-
 .title{
 }
+
 
 </style>

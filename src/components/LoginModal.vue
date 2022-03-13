@@ -7,17 +7,20 @@
         </div>
         <div v-if="isRegistered" id="login" class="col-md-6 col-xs-12 d-flex flex-column" style="display:flex">
           <button class=" close" @click="close">X</button>
-        <h2>LogIn!</h2>
+        <div class="d-flex flex-column align-content-center" style="justify-content: center">
+          <h2>LogIn!</h2>
           <FormInput title="Username" type="text"/>
           <FormInput title="Password" type="password"/>
           <FormInput class="ml-3" title="Remember me" type="checkbox"/>
           <button class="bg-success btn mt-3 mb-3 m-auto" style="width: 50%">Log In !</button>
           <span @click="isRegister">Not registered yet ? Create an account</span>
         </div>
+        </div>
         <div id="register" v-if="isRegistered===false" class="col-md-6 col-xs-12 d-flex flex-column">
           <button class="close" @click="close">X</button>
           <h2>Register</h2>
           <FormInput title="Username" type="text"/>
+          <FormInput title="Email   " type="email"/>
           <FormInput title="Password" type="password"/>
           <button class="bg-success btn mt-3 mb-3 m-auto" style="width: 50%">Register !</button>
           <span @click="isRegister">Already have an account ? Sign in !</span>
@@ -66,10 +69,10 @@ section{
   /*display: flex;*/
   justify-content: center;
   align-items: center;
-  width: 75vw;
-  height: 75vh;
-  top: 12.5vh;
-  left: 12.5vw;
+  width: 75%;
+  height: 75%;
+  top: 12.5%;
+  left: 12.5%;
   transform: translateX(0%);
   overflow-y:hidden;
   border: 2px #27EE52 solid;
