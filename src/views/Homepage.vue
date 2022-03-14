@@ -4,7 +4,6 @@
     <div class="Section">
     <HeroSection color="bg-success"/>
     </div>
-
     <InformationSection/>
   </div>
 </template>

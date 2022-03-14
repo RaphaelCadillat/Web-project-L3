@@ -11,19 +11,19 @@
         <img src="../ressources/iconhome.png" alt=""/>
         </router-link>
       </span>
-      <span style="margin-left: 10px">
+      <!--<span style="margin-left: 10px">
         <router-link to="/about">
         <img src="../ressources/direction1.png" class="ml-4" alt="">
         </router-link>
-      </span>
+      </span>-->
       <span style="margin-left: 10px">
         <router-link to="/form">
         <img src="../ressources/Message_alt.png" class="ml-4" alt=""/>
           </router-link>
       </span>
     </div>
-    <div class="rightnav container m-0">
-      <span class="log ml-5" @click="isModal"><img src="../ressources/User.png"  alt=""/> Login/Register</span>
+    <div class="rightnav container m-0" >
+      <span class="log ml-5" @click="isModal" ><img src="../ressources/User.png"  alt=""/> Login/Register</span>
     </div>
 
     </div>
@@ -86,6 +86,9 @@ nav:hover{
 margin-left: 70%;
 }
 .title{
+}
+.rightnav:hover{
+  cursor: pointer;
 }
 
 

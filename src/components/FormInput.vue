@@ -1,7 +1,7 @@
 <template>
-<div class="container mt-4 m-0 flex-column d-flex" style="width: 100%">
+<div class="container mt-4 m-0 flex-column d-flex" style="width: 100%" >
   <span class="text-left">{{title}}</span>
-  <input class="rounded" :placeholder="title" :type="type">
+  <input class="rounded" :placeholder="title" :type="type" v-on:input="updateValue($event.target.value)" v-bind:value="value" required/>
 </div>
 </template>
 
@@ -11,8 +11,16 @@ export default {
   props : {
     title : String,
     type : String,
-    bind : String
+    bind : String,
+    valuem : String
+  },
+
+  methods : {
+    updateValue: function (value) {
+      this.$emit( 'input',value);
+    }
   }
+
 }
 </script>
 
