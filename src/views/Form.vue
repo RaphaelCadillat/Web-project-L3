@@ -2,6 +2,7 @@
 <div class=" container mt-3 p-5">
   <h1>DinoForm</h1>
   <h2>Create and add your dino to your collection</h2>
+  <FormInput title="id_user" type="text" v-model="id_user"/>
   <FormInput title="Name" type="text" v-model="Name"/>
   <FormInput title="Size in meters" type="number" v-model="Size"/>
   <div class="container mt-4 m-0 flex-row d-flex">
@@ -24,9 +25,10 @@
         <option >Carnivore</option>
         <option >Herbivore</option>
       </select>
+      <button @click="getNumberOfUser">Oui</button>
     </div>
   </div>
-  <button class="bg-success mt-3 rounded border-0"  @click="submitForm">Submit !</button>
+  <button class="bg-success mt-3 rounded border-0"  @click="postDetails">Submit !</button>
   <div class="container row m-0 mt-3">
     <h1>Collection</h1>
   <Dinosaurs v-for="dino in dinos" v-bind:key="dino" :Carac=dino.Carac :Name=dino.Name :Size=dino.Size :type=dino.Type></Dinosaurs>
@@ -38,15 +40,19 @@
 <script>
 import FormInput from "@/components/FormInput";
 import Dinosaurs from "@/components/Dinosaurs";
+const BASE_URL = "http://127.0.0.1:8081/";
+const USER_URL = BASE_URL+"Dino/"
+
 export default {
   name: "Form",
   components: {Dinosaurs, FormInput},
   data  () {
     return{
-      Name : '',
+      Name : null,
       Size : Number,
       Type : String,
       Carac : '',
+      id_user : null,
       dinos : [{
         Name :'Edward',
         Carac: 'Carnivore',
@@ -93,7 +99,32 @@ export default {
 
       this.dinos.push(dino);
 
+    },
+    getNumberOfUser(){
+      fetch(USER_URL+"getNumberOfUser").then(res => res.json()).then(res => {
+        console.log(res);
+      })
+    },
+    postDetails(){
+      const postOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name: this.Name,
+          id_user: this.id_user,
+          carac : this.Carac,
+          type : this.Type,
+          size : this.Size
+
+        })
+      }
+      fetch(USER_URL+"detail", postOptions)
+          .then(response => response.json())
+          .then(res => {
+            console.log(res);
+          })
     }
+
   }
 
 }

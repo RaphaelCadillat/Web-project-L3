@@ -42,7 +42,7 @@ section {
   margin: auto;
 }
 p{
-  font-size: 4vh;
+  font-size: 3vh;
 }
 span{
   font-size: 4vh;

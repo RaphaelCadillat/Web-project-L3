@@ -8,9 +8,16 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "body-parser": "^1.19.2",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
     "mdb-vue-ui-kit": "^1.10.0",
+    "mssql": "^8.0.2",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "vite": "^2.8.6",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
