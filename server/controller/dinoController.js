@@ -1,6 +1,6 @@
 const dino = require("../model/Dino");
 
-async function getNumberOfUser(req, res){
+async function getNumberOfDino(req, res){
     console.log("Inside getNumberOfUser")
     const count = await dino.getCount();
     console.log('--' + count)
@@ -8,9 +8,10 @@ async function getNumberOfUser(req, res){
     res.send({count: count});
 }
 
+
+
 async function postDetail(req, res){
     const name = req.body.name;
-    console.log(name);
     const id_users = req.body.id_user;
     const id_dinos = await dino.getCount();
     const carac = req.body.carac;
@@ -29,12 +30,12 @@ async function deleteDetail(req, res){
     res.send({isSuccess: isSuccess});
 }
 
-async function getUserDetail(req, res){
+async function getDinoDetail(req, res){
     const id = req.params.id;
 
     const detail = await dino.getById(id);
 
-    res.send({detail: detail});
+    res.send(detail);
 }
 
 async function updateDetail(req, res){
@@ -46,10 +47,34 @@ async function updateDetail(req, res){
     res.send({isSuccess: isSuccess});
 }
 
+async function connectUser(req,res){
+    const name = req.body.name;
+    const password = req.body.password;
+    const isSuccess = await dino.getConnect(name,password);
+
+    res.send(isSuccess);
+
+}
+
+async function createUser(req,res){
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    const id = await dino.getCountUser();
+    const isSuccess = dino.createUser(name,email,password,id);
+    res.send({isSuccess: isSuccess});
+    }
+
+
+
+
+
 module.exports = {
-    getNumberOfUser,
+    getNumberOfDino,
     postDetail,
     deleteDetail,
-    getUserDetail,
+    getDinoDetail,
     updateDetail,
+    createUser,
+    connectUser : connectUser,
 }

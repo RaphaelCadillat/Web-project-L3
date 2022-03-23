@@ -11,8 +11,7 @@ export default {
   props : {
     title : String,
     type : String,
-    bind : String,
-    valuem : String
+    bind : String
   },
 
   methods : {

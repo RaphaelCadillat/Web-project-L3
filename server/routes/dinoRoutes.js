@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const userController = require('../controller/dinoController.js')
+const DinoController = require('../controller/dinoController.js')
 
-router.get('/getNumberOfUser', userController.getNumberOfUser);
-router.post('/detail', userController.postDetail);
-router.delete('/detail/:id', userController.deleteDetail);
-router.get('/detail/:id', userController.getUserDetail);
-router.patch('/detail', userController.updateDetail);
-
+router.get('/getNumberOfUser', DinoController.getNumberOfDino);
+router.post('/detail', DinoController.postDetail);
+router.delete('/detail/:id', DinoController.deleteDetail);
+router.get('/detail/:id', DinoController.getDinoDetail);
+router.patch('/detail', DinoController.updateDetail);
+router.get('/connection',DinoController.connectUser);
+router.get('/createuser',DinoController.createUser);
 module.exports = router;

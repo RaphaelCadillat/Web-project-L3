@@ -3,7 +3,8 @@
    <img v-bind:src="require('../assets/'+ this.Type + '.jpg')" alt="" style="width: 100%;height: 50%" class="mt-3" />
   <div class="container m-0 d-flex flex-column">
   <h1>{{Name}}</h1>
-    <p>Alimentation : {{Carac}}<br>Race : {{Type}}<br>Size : {{Size}} meters</p>
+    <p>Alimentation : {{Carac}}<br>Race : {{Type}}<br>Size : {{Size}} meters
+    <br> {{id}}</p>
   </div>
 
 </div>
@@ -19,6 +20,7 @@ export default {
         type :String,
         default : ''
       },
+    id : Number,
     Type : String,
     Size : Number
     },

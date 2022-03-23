@@ -25,14 +25,26 @@
         <option >Carnivore</option>
         <option >Herbivore</option>
       </select>
-      <button @click="getNumberOfUser">Oui</button>
     </div>
   </div>
   <button class="bg-success mt-3 rounded border-0"  @click="postDetails">Submit !</button>
+
+
+  <h1>Collection</h1>
+  <FormInput title="id_user" type="text" v-model="id_user"/>
+  <button class="btn-success rounded mt-3" @click="getUserDetails">Get Collection</button>
   <div class="container row m-0 mt-3">
-    <h1>Collection</h1>
-  <Dinosaurs v-for="dino in dinos" v-bind:key="dino" :Carac=dino.Carac :Name=dino.Name :Size=dino.Size :type=dino.Type></Dinosaurs>
+
+
+
+
+  <Dinosaurs v-for="dino in dinos" v-bind:key="dino" :Carac=dino.carac :Name=dino.name :Size=dino.size :type=dino.type :id = dino.id_dinos></Dinosaurs>
   </div>
+  <h2>Delete Dinosaur</h2>
+  <FormInput title="id_dinos" type="text" v-model="id_dinos"/>
+
+  <button class="btn-success rounded mt-3" @click="deleteUser">Delete Dino !</button>
+
 
 </div>
 </template>
@@ -52,59 +64,21 @@ export default {
       Size : Number,
       Type : String,
       Carac : '',
+      id_dinos : null,
       id_user : null,
       dinos : [{
-        Name :'Edward',
-        Carac: 'Carnivore',
-        Type : "T-rex",
-        Size : 6.7,
-      },{
-      Name : 'Philip',
-      Carac: 'Herbivore',
-      Type : "Archaeopteryx",
-      Size : 1.2},
-        {Name: 'Titouan',
-        Carac: "Carnivore",
-        Type: "Megalodon",
-        Size: 150},
-        {
-          Name : 'Philip',
-          Carac: 'Herbivore',
-          Type : "Archaeopteryx",
-          Size : 1.2},
-        {Name: 'Xavier',
-          Carac: "Carnivore",
-          Type: "T-rex",
-          Size: 12},
-        {
-          Name : 'Philip',
-          Carac: 'Herbivore',
-          Type : "Archaeopteryx",
-          Size : 1.2},
-        {Name: 'Pascal',
-          Carac: "Herbivore",
-          Type: "Megalosaurus",
-          Size: 7}],
+        name :'Edward',
+        carac: 'Carnivore',
+        type : "T-rex",
+        size : 6.7,
+        id_dinos : 1
+      }
+        ],
 
     }
   },
   methods : {
-    submitForm(){
-      let dino = {
-        Name : this.Name,
-        Carac : this.Carac,
-        Type : this.Type,
-        Size : this.Size
-      };
 
-      this.dinos.push(dino);
-
-    },
-    getNumberOfUser(){
-      fetch(USER_URL+"getNumberOfUser").then(res => res.json()).then(res => {
-        console.log(res);
-      })
-    },
     postDetails(){
       const postOptions = {
         method: 'POST',
@@ -122,12 +96,38 @@ export default {
           .then(response => response.json())
           .then(res => {
             console.log(res);
-          })
+          });
+      this.getUserDetails();
+    },
+    deleteUser(){
+      const deleteOptions = {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+      };
+
+      fetch(USER_URL+"detail/"+this.id_dinos, deleteOptions)
+          .then(response => response.json())
+          .then(res => console.log(res));
+    },
+    getUserDetails(){
+      this.dinos = [];
+      console.log("Trying to get user details for: "+ this.id_user);
+      const URL = USER_URL+"detail/"+this.id_user;
+      console.log(URL);
+
+      fetch(URL).then(response => response.json()).then(res => {
+        console.log(res);
+        for (const dino of res ){
+          this.dinos.push(dino);}})
+      }
+
+
+
     }
 
   }
 
-}
+
 </script>
 
 <style scoped>
