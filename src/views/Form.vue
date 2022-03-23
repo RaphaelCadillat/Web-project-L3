@@ -80,6 +80,7 @@ export default {
   methods : {
 
     postDetails(){
+      if (this.Name!=='' && this.Type!=='' && this.Size!==null && this.Carac !== '' ){
       const postOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
@@ -97,7 +98,10 @@ export default {
           .then(res => {
             console.log(res);
           });
-      this.getUserDetails();
+      this.getUserDetails();}
+      else{
+        alert("You have to fill all fields")
+      }
     },
     deleteUser(){
       const deleteOptions = {
